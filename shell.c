@@ -1,4 +1,4 @@
-#include "main.h"
+#include "holberton.h"
 
 /**
  * execute - executes the command
@@ -79,7 +79,7 @@ int main(int argc, char **argv)
 
 		getline(&buffer, &bufsize, stdin);
 		buffer[_strlen(buffer) - 1] = '\0';
-		tokens = string_to_tokens(buffer);
+		tokens = stringToTokens(buffer);
 		response = execute(tokens);
 	} while (isPipe && response != -1);
 
