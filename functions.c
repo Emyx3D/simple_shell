@@ -1,12 +1,20 @@
+#include "main.h"
+
+/**
+ * *_strlen -  checks for the length of a string
+ * @s: char type string
+ * Description: the length of the string s is being determined
+ * Return: length of the srting
+ */
 int _strlen(const char *s)
 {
-int i = 0;
-while (s[i])
-	i++;
+	int i = 0;
 
-return (i);
+	while (s[i])
+		i++;
+
+	return (i);
 }
-
 
 /**
  * *_strcpy -  copies the string pointed to by src
