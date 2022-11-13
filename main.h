@@ -1,18 +1,33 @@
 #ifndef SIMPLE_SHELL
 #define SIMPLE_SHELL
 
+#include <errno.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/wait.h>
 #include <string.h>
+#include <sys/wait.h>
+#include <unistd.h>
 
-int _strlen(const char *s);
-char *_strcpy(char *dest, const char *src);
-int _putchar(char c);
-void _puts(char *str);
-unsigned int nbr_spaces(char *s);
-char **stringToTokens(char *str);
+struct builtin
+{
+    char *name;
+    void (*func)(char **args);
+};
+
+struct builtin builtins[] = {
+    {"help", _help},
+    {"exit", _exit},
+    {"cd", _cd},
+};
+
+void _exit(char **args);
+int _num_builtins();
+void _help(char **args);
+void _cd(char **args);
+void _exit(char **args);
+void _exec(char **args);
+char **_split_line(char *line);
+char *_read_line();
 
 #endif
