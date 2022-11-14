@@ -44,7 +44,6 @@ void prog_exec(char **args)
 	if (child_pid == 0)
 	{
 		execvp(args[0], args);
-		perror("collins");
 		exit(1);
 	}
 	else if (child_pid > 0)
@@ -58,7 +57,7 @@ void prog_exec(char **args)
 	}
 	else
 	{
-		perror("collins");
+		perror("error: child process failure");
 	}
 }
 
@@ -78,7 +77,7 @@ char **prog_split_line(char *line)
 
 	if (!tokens)
 	{
-		perror("collins");
+		perror("error: unable to allocate memory");
 		exit(1);
 	}
 
@@ -96,7 +95,7 @@ char **prog_split_line(char *line)
 			tokens = realloc(tokens, capacity * sizeof(char *));
 			if (!tokens)
 			{
-				perror("collins");
+				perror("error: unable to reallocate memory to tokens");
 				exit(1);
 			}
 		}
@@ -127,7 +126,7 @@ char *prog_read_line()
 	{
 		if (errno)
 		{
-			perror("collins");
+			perror("error: line not read...");
 		}
 		exit(1);
 	}

@@ -17,16 +17,4 @@ void prog_exec(char **args);
 char **prog_split_line(char *line);
 char *prog_read_line();
 
-// typedef struct builtin
-// {
-//     char *name;
-//     void (*func)(char **args);
-// } inherent;
-
-// inherent progs[] = {
-//     {"help", prog_help},
-//     {"exit", prog_exit},
-//     {"cd", prog_cd},
-// };
-
 #endif

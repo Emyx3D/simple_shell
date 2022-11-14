@@ -24,13 +24,13 @@ void prog_cd(char **args)
 {
 	if (args[1] == NULL)
 	{
-		fprintf(stderr, "collins: cd: missing argument\n");
+		fprintf(stderr, "error: cd: missing argument\n");
 	}
 	else
 	{
 		if (chdir(args[1]) != 0)
 		{
-			perror("collins: cd");
+			perror("unable to change current directory: cd");
 		}
 	}
 }
