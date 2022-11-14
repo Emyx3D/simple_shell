@@ -9,25 +9,24 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
-struct builtin
-{
-    char *name;
-    void (*func)(char **args);
-};
+void prog_exit(char **args);
+int prog_num_builtins(void);
+void prog_help(char **args);
+void prog_cd(char **args);
+void prog_exec(char **args);
+char **prog_split_line(char *line);
+char *prog_read_line();
 
-struct builtin builtins[] = {
-    {"help", _help},
-    {"exit", _exit},
-    {"cd", _cd},
-};
+// typedef struct builtin
+// {
+//     char *name;
+//     void (*func)(char **args);
+// } inherent;
 
-void _exit(char **args);
-int _num_builtins();
-void _help(char **args);
-void _cd(char **args);
-void _exit(char **args);
-void _exec(char **args);
-char **_split_line(char *line);
-char *_read_line();
+// inherent progs[] = {
+//     {"help", prog_help},
+//     {"exit", prog_exit},
+//     {"cd", prog_cd},
+// };
 
 #endif
